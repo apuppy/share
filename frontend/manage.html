@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>links</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/manage.css">
+    <style>
+        body {
+            color: #222;
+            background: #fff;
+            font: 100% system-ui;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: #eee;
+                background: #121212;
+            }
+
+            body a {
+                color: #809fff;
+            }
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0px;
+        }
+
+        ul>li {
+            display: inline-block;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #192634;
+            margin-top: 20px;
+            margin-right: 20px;
+            border-radius: 3px;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form id="category-form" action="http://localhost:8080/link-category" method="POST">
+            <div>
+                <label for="category_name">Category Name: </label>
+                <input class="input" type="text" name="category_name" autocomplete="off">
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+    <script>
+        window.onload = function () {
+            var form = document.getElementById("category-form");
+            if (form.attachEvent) {
+                form.attachEvent("submit", processForm);
+            } else {
+                form.addEventListener("submit", processForm)
+            }
+        }
+        function processForm(e) {
+            if (e.preventDefault) e.preventDefault()
+            console.log(this);
+            var data = {};
+            for (var i = 0; i < this.elements.length; i++) {
+                var el = this.elements[i];
+                if (el.type == "submit") {
+                    continue;
+                }
+                data[el.name] = el.value;
+            }
+            var json_data = JSON.stringify(data);
+            var url = "http://127.0.0.1:8080/link-category";
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onload = function () {
+                if (xhr.readyState == 4 && xhr.status == 200 && xhr.responseText) {
+                    console.log(xhr.responseText);
+                } else if (xhr.status !== 200 || !xhr.responseText) {
+                    console.error("xhr error occurred");
+                }
+            }
+            xhr.send(json_data);
+
+            return false;
+        }
+    </script>
+</body>
+
+</html>
