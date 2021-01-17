@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demos and snippets</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <select multiple class="chosen-select" name="first">
+        <option>American Black Bear</option>
+        <option>Asiatic Black Bear</option>
+        <option>Brown Bear</option>
+        <option>Giant Panda</option>
+        <option>Sloth Bear</option>
+        <option>Sun Bear</option>
+        <option>Polar Bear</option>
+        <option>Spectacled Bear</option>
+    </select>
+    <select multiple class="chosen-select" name="second">
+        <option>American Black Bear</option>
+        <option>Asiatic Black Bear</option>
+        <option>Brown Bear</option>
+        <option>Giant Panda</option>
+        <option>Sloth Bear</option>
+        <option>Sun Bear</option>
+        <option>Polar Bear</option>
+        <option>Spectacled Bear</option>
+    </select>
+    <script>
+        window.onload = function () {
+            // 选择器选择及元素操作
+            document.querySelectorAll(".chosen-select").forEach(e => {
+                var options = e.options;
+                for (var i = 0; i < options.length; i++) {
+                    var current_option = options[i];
+                    if (current_option.innerText.indexOf("Black") !== -1) {
+                        console.log(current_option);
+                        current_option.selected = true;
+                    }
+                    // 偶数索引选中
+                    /* if (i % 2 == 0) {
+                        current_option.selected = true;
+                    } */
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
