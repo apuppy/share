@@ -15,6 +15,7 @@ func main() {
 	r.GET("/ping", controllers.Pong)
 	r.GET("/db", controllers.DbDemo)
 	r.POST("/link-category", controllers.SaveCategory)
+	r.GET("/zap-log", controllers.ZapLog)
 	r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }
 
