@@ -6,14 +6,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        html,
+        body {
+            background-color: #202945;
+        }
+
+        #top-container {
+            height: 60px;
+        }
+
         nav {
             text-align: center;
             height: 60px;
             line-height: 60px;
         }
+
         #right-panel {
-            float:right;
+            float: right;
             width: 80px;
+        }
+
+        a {
+            color: #809fff;
+            text-decoration: none;
+        }
+
+        nav>a {
+            margin-left: 20px;
+            font-size: 18px;
+            height: 40px;
+            display: inline-block;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        #main-container {
+            height: 900px;
+        }
+
+        #left-panel {
+            float: left;
+            width: 80px;
+            color: #809fff;
+        }
+
+        #middle-panel {
+            float: left;
+            width: 1500px;
+        }
+
+        #middle-panel>article {
+            background-color: #253668;
+            color: #809fff;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            padding: 20px;
+        }
+
+        .post-entry {
+            position: relative;
+        }
+
+        .entry-link {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        #right-panel>a {
+            font-size: 16px;
+            display: block;
+            margin-top: 20px;
+        }
+
+        section>p {
+            color: #809fff;
+            margin: 8px 0;
+        }
+
+        #bottom-container>section>p {
+            color: #809fff;
+            text-align: center;
         }
     </style>
 </head>
@@ -36,18 +111,52 @@
     <!-- main content container -->
     <div id="main-container">
         <div id="left-panel">
+            <div id="media-player">
+                PLAY
+            </div>
         </div>
         <div id="middle-panel">
+            <article class="post-entry">
+                <header>
+                    <h2>concurrency pattern in golang</h2>
+                </header>
+                <section>
+                    <p>When you learned some golang basis, especially goroutine, You may want to try goroutine to speeed
+                        up your application. </p>
+                </section>
+                <footer>
+                    <time>2021-05-25 16:53:32</time>
+                </footer>
+                <a class="entry-link" href=""></a>
+            </article>
+            <article class="post-entry">
+                <header>
+                    <h2>application apperence: dark mode and light mode</h2>
+                </header>
+                <section>
+                    <p>Use different color scheme to fit for the system theme or supply entry to switch the color scheme
+                        of your application.</p>
+                </section>
+                <footer>
+                    <time>2021-05-25 16:53:32</time>
+                </footer>
+                <a class="entry-link" href=""></a>
+            </article>
         </div>
         <div id="right-panel">
-            <a href="https://twitter.com/KevinLi1992">Twitter</a>
-            <a href="https://github.com/apuppy">Github</a>
-            <a href="https://www.youtube.com/channel/UCSzGYVod8oB-FBho4tYkHng">Youtube</a>
+            <a href="https://twitter.com/KevinLi1992" target="_blank">Twitter</a>
+            <a href="https://github.com/apuppy" target="_blank">Github</a>
+            <a href="https://www.youtube.com/channel/UCSzGYVod8oB-FBho4tYkHng" target="_blank">Youtube</a>
         </div>
     </div>
 
     <!-- bottom container -->
-    <div id="bottom-container"></div>
+    <div id="bottom-container">
+        <section>
+            <p>Written by Kevin Leo, a full-stack developer who has extensive experience in the Javascript、Go、 PHP. Also
+                can write code use Python, Java and etc.</p>
+        </section>
+    </div>
 </body>
 
 </html>
