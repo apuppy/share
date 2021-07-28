@@ -9,21 +9,22 @@
         html,
         body {
             background-color: #202945;
+            padding: 2em;
         }
 
-        #top-container {
-            height: 60px;
+        .wrapper {
+            display: flex;
+            flex-flow: row wrap;
+            text-align: center;
+        }
+
+        .wrapper>* {
+            padding: 10px;
+            flex: 1 100%;
         }
 
         nav {
             text-align: center;
-            height: 60px;
-            line-height: 60px;
-        }
-
-        #right-panel {
-            float: right;
-            width: 80px;
         }
 
         a {
@@ -40,24 +41,16 @@
             text-align: center;
         }
 
-        #main-container {
-            height: 900px;
+        @media all and (min-width: 600px) {
+            .aside {
+                flex: 1 0 0;
+            }
         }
 
-        #left-panel {
-            float: left;
-            width: 80px;
-            color: #809fff;
-        }
-
-        #middle-panel {
-            float: left;
-            width: 1500px;
-        }
-
-        #middle-panel>article {
+        .middle-panel>article {
             background-color: #253668;
             color: #809fff;
+            text-align: left;
             border-radius: 5px;
             margin-bottom: 25px;
             padding: 20px;
@@ -75,7 +68,7 @@
             bottom: 0;
         }
 
-        #right-panel>a {
+        .right-panel>a {
             font-size: 16px;
             display: block;
             margin-top: 20px;
@@ -86,44 +79,62 @@
             margin: 8px 0;
         }
 
-        #bottom-container>section>p {
+        .bottom-container>section>p {
             color: #809fff;
             text-align: center;
+        }
+
+        @media all and (min-width: 800px) {
+            .middle-panel {
+                flex: 3 0px;
+            }
+
+            .left-panel {
+                order: 1;
+            }
+
+            .middle-panel {
+                order: 2;
+            }
+
+            .right-panel {
+                order: 3;
+            }
+
+            .bottom-container {
+                order: 4;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- navigation links -->
-    <div id="top-container">
-        <nav>
-            <a href="">Go</a>
-            <a href="">PHP</a>
-            <a href="">Linux</a>
-            <a href="">Database</a>
-            <a href="">Frontend</a>
-            <a href="">Cooking</a>
-            <a href="">Traveling</a>
-            <a href="">Misc</a>
-            <a href="links.html">Links</a>
-            <a href="">Bio</a>
-        </nav>
-    </div>
-    <!-- main content container -->
-    <div id="main-container">
-        <div id="left-panel">
-            <div id="media-player">
-                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86
-                    src="//music.163.com/outchain/player?type=2&id=413077351&auto=1&height=66"></iframe>
-            </div>
+    <div class="wrapper">
+
+        <!-- navigation links -->
+        <div class="top-container">
+            <nav>
+                <a href="">Go</a>
+                <a href="">PHP</a>
+                <a href="">Linux</a>
+                <a href="">Database</a>
+                <a href="">Frontend</a>
+                <a href="">Cooking</a>
+                <a href="">Traveling</a>
+                <a href="">Misc</a>
+                <a href="links.html">Links</a>
+                <a href="">Bio</a>
+            </nav>
         </div>
-        <div id="middle-panel">
+        <!-- main content container -->
+        <div class="middle-panel">
             <article class="post-entry">
                 <header>
                     <h2>concurrency pattern in golang</h2>
                 </header>
                 <section>
-                    <p>When you learned some golang basis, especially goroutine, You may want to try goroutine to speeed
+                    <p>When you learned some golang basis, especially goroutine, You may want to try goroutine to
+                        speeed
                         up your application. </p>
                 </section>
                 <footer>
@@ -136,7 +147,8 @@
                     <h2>application apperence: dark mode and light mode</h2>
                 </header>
                 <section>
-                    <p>Use different color scheme to fit for the system theme or supply entry to switch the color scheme
+                    <p>Use different color scheme to fit for the system theme or supply entry to switch the color
+                        scheme
                         of your application.</p>
                 </section>
                 <footer>
@@ -145,19 +157,27 @@
                 <a class="entry-link" href=""></a>
             </article>
         </div>
-        <div id="right-panel">
+        <aside class="aside left-panel">
+            <div id="media-player">
+                <iframe src="https://open.spotify.com/embed/track/1Ts8fXyLnRiT5J9KecTsEm" width="100%" height="80"
+                    frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=86 src="//music.163.com/outchain/player?type=2&id=413077351&auto=0&height=66"></iframe> -->
+            </div>
+        </aside>
+        <aside class="aside right-panel">
             <a href="https://twitter.com/KevinLi1992" target="_blank">Twitter</a>
             <a href="https://github.com/apuppy" target="_blank">Github</a>
             <a href="https://www.youtube.com/channel/UCSzGYVod8oB-FBho4tYkHng" target="_blank">Youtube</a>
-        </div>
-    </div>
+        </aside>
 
-    <!-- bottom container -->
-    <div id="bottom-container">
-        <section>
-            <p>Written by Kevin Leo, a full-stack developer who has extensive experience in the Javascript、Go、 PHP. Also
-                can write code use Python, Java and etc.</p>
-        </section>
+        <!-- bottom container -->
+        <div class="bottom-container">
+            <section>
+                <p>Written by Kevin Leo, a full-stack developer who has extensive experience in the Javascript、Go、 PHP.
+                    Also
+                    can write code use Python, Java and etc.</p>
+            </section>
+        </div>
     </div>
 </body>
 
