@@ -14,6 +14,8 @@ import 'froala-editor/css/froala_editor.pkgd.min.css';
 
 // Import and use Vue Froala lib.
 import VueFroala from 'vue-froala-wysiwyg'
+
+import router from './router'
 Vue.use(VueFroala)
 Vue.config.productionTip = false
 
@@ -21,5 +23,6 @@ Vue.config.productionTip = false
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
+  router,
+  render: h => h(App)
 }).$mount('#app')
