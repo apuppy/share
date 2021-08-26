@@ -8,6 +8,9 @@ npm install
 ### Compiles and hot-reloads for development
 ```
 npm run serve
+
+# specify listen port
+npm run serve -- --port=8060
 ```
 
 ### Compiles and minifies for production

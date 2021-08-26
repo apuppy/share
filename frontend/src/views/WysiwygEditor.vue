@@ -22,6 +22,14 @@ export default {
             console.log("initialized");
           },
         },
+        // Set the save param.
+        saveParam: "content",
+
+        // Set the save URL.
+        saveURL: "http://localhost:8080/editor/save",
+
+        // HTTP request type.
+        saveMethod: "POST",
       },
       model: "Edit Your Content Here!",
     };
