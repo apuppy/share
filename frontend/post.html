@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Adventures On Earth</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html,
+        body {
+            font: 100% system-ui;
+            background-color: #202945;
+            padding: 2em;
+            color: #809fff;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-flow: row wrap;
+            text-align: center;
+        }
+
+        .wrapper>* {
+            padding: 10px;
+            flex: 1 100%;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        a {
+            color: #809fff;
+            text-decoration: none;
+        }
+
+        nav>a {
+            margin-left: 20px;
+            font-size: 18px;
+            height: 40px;
+            display: inline-block;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        @media all and (min-width: 600px) {
+            .aside {
+                flex: 1 0 0;
+            }
+        }
+
+        .middle-panel>article {
+            background-color: #253668;
+            color: #809fff;
+            text-align: left;
+            border-radius: 5px;
+            margin-bottom: 25px;
+            padding: 20px;
+        }
+
+        .post-entry {
+            position: relative;
+        }
+
+        .entry-link {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .right-panel>a {
+            font-size: 16px;
+            display: block;
+            margin-top: 20px;
+        }
+
+        section>p {
+            color: #809fff;
+            margin: 8px 0;
+        }
+
+        .bottom-container>section>p {
+            color: #809fff;
+            text-align: center;
+        }
+
+        @media all and (min-width: 800px) {
+            .middle-panel {
+                flex: 3 0px;
+            }
+
+            .left-panel {
+                order: 1;
+            }
+
+            .middle-panel {
+                order: 2;
+            }
+
+            .right-panel {
+                order: 3;
+            }
+
+            .bottom-container {
+                order: 4;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="markdown-content"></div>
+
+    
+    <!-- <script src="showdown.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+    <script>
+        // Get the doc parameter from the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const doc = urlParams.get('doc');
+      // concate filename with the path
+      const filename = 'post/' + doc + '.md';
+      // Load the Markdown content from the file specified in the URL parameter
+      fetch(filename)
+        .then(response => response.text())
+        .then(markdown => {
+          // Convert the Markdown to HTML using Showdown
+          const converter = new showdown.Converter();
+          const html = converter.makeHtml(markdown);
+
+          // Insert the HTML into the page
+          document.getElementById('markdown-content').innerHTML = html;
+        })
+        .catch(error => {
+          console.error(`Error loading Markdown file: ${error}`);
+        });
+      </script>
+</body>
+
+</html>
