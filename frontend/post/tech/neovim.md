@@ -6,6 +6,7 @@
     - [常用快捷键](#常用快捷键)
     - [查看keymap](#查看keymap)
     - [Mason](#mason)
+    - [shortcuts](#shortcuts)
     - [self-maintained kickstart.nvim](#self-maintained-kickstartnvim)
 
 ## install
@@ -41,6 +42,13 @@ plugin help renamed to vimdoc
 ```bash
 :Mason
 ```
+
+### shortcuts
+| shortcut |   mode   | USAGE            |
+|----------|----------|------------------|
+| %        | normal   |new file name     |
+| d        | normal   |new directory name|
+| so       | cmd      |source load-vim-script|
 
 ### self-maintained kickstart.nvim
 ```bash
