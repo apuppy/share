@@ -6,6 +6,7 @@
     - [常用快捷键](#常用快捷键)
     - [查看keymap](#查看keymap)
     - [Mason](#mason)
+    - [self-maintained kickstart.nvim](#self-maintained-kickstartnvim)
 
 ## install
 ```bash
@@ -39,4 +40,9 @@ plugin help renamed to vimdoc
 ### Mason
 ```bash
 :Mason
+```
+
+### self-maintained kickstart.nvim
+```bash
+git clone https://github.com/apuppy/kickstart.nvim.git ~/.config/nvim
 ```
