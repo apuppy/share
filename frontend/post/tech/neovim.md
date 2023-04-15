@@ -44,11 +44,12 @@ plugin help renamed to vimdoc
 ```
 
 ### shortcuts
-| shortcut |   mode   | USAGE            |
-|----------|----------|------------------|
-| %        | normal   |new file name     |
-| d        | normal   |new directory name|
-| so       | cmd      |source load-vim-script|
+| shortcut           | mode   | USAGE                  |
+|--------------------|--------|------------------------|
+| %                  | normal | new file name          |
+| d                  | normal | new directory name     |
+| :so                | cmd    | source load-vim-script |
+| :help key-notation | cmd    | view key mapping       |
 
 ### self-maintained kickstart.nvim
 ```bash
