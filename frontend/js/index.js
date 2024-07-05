@@ -1,3 +1,7 @@
+document.querySelector('#theme-toggle').addEventListener('click', function(event) {
+    event.preventDefault()
+    console.log("Theme toggled")
+})
 document.addEventListener('DOMContentLoaded', function() {
     let storedTheme = localStorage.getItem('theme');
     switch(storedTheme) {
