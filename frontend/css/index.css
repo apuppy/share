@@ -11,7 +11,7 @@
     --secondary-color: #fff;
     --main-bg-color: #f0f0f0;
     --link-color: #2383E2;
-    --font-color: #050505;
+    --font-color: #37352F;
 }
 
 body {
@@ -114,4 +114,8 @@ section>p {
     .bottom-container {
         order: 4;
     }
+}
+
+#theme-icon {
+    height: 1.2rem;
 }
