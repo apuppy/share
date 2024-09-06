@@ -85,12 +85,12 @@ nav>a {
 }
 
 section>p {
-    color: var(--primary-color);
+    color: var(--font-color);
     margin: 8px 0;
 }
 
 .bottom-container>section>p {
-    color: var(--primary-color);
+    color: var(--font-color);
     text-align: center;
 }
 
