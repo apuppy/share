@@ -44,15 +44,19 @@ function switchTheme() {
     const themeEl = document.querySelector("#theme-name")
     const themeName = themeEl.getAttribute('data-theme-name')
     wantTheme = themeName === THEME_DARK ? THEME_LIGHT : THEME_DARK
+    
     setStorageTheme(wantTheme);
+    
     themeEl.setAttribute('data-theme-name', wantTheme)
-    themeEl.innerHTML = wantTheme
+    themeEl.textContent = wantTheme
+
     return wantTheme
 }
 
 function useTheme(theme) {
     //TODO use relevant theme related CSS
     console.log('Use relevant theme:', theme)
+    document.body.classList.toggle("dark-theme")
 }
 
 function querySysTheme() {

@@ -1,7 +1,24 @@
-html,
+.dark-theme {
+    --primary-color: #809fff;
+    --secondary-color: #253668;
+    --main-bg-color: #202945;
+    --link-color: #809fff;
+    --font-color: #809fff;
+}
+
+:root {
+    --primary-color: #fff;
+    --secondary-color: #fff;
+    --main-bg-color: #f0f0f0;
+    --link-color: #2383E2;
+    --font-color: #050505;
+}
+
 body {
-    font: 100% system-ui;
-    background-color: #202945;
+    margin: 0;
+    font-size: 1rem;
+    font-family: system-ui;
+    background-color: var(--main-bg-color);
 }
 
 .wrapper {
@@ -13,7 +30,7 @@ body {
 .wrapper>* {
     padding: 10px;
     flex: 1 100%;
-    color: #809fff;
+    color: var(--primary-color);
 }
 
 nav {
@@ -21,13 +38,13 @@ nav {
 }
 
 a {
-    color: #809fff;
+    color: var(--link-color);
     text-decoration: none;
 }
 
 nav>a {
     margin-left: 20px;
-    font-size: 18px;
+    font-size: 1.2rem;
     height: 40px;
     display: inline-block;
     line-height: 40px;
@@ -41,8 +58,8 @@ nav>a {
 }
 
 .middle-panel>article {
-    background-color: #253668;
-    color: #809fff;
+    background-color: var(--secondary-color);
+    color: var(--font-color);
     text-align: left;
     border-radius: 5px;
     margin-bottom: 25px;
@@ -68,12 +85,12 @@ nav>a {
 }
 
 section>p {
-    color: #809fff;
+    color: var(--primary-color);
     margin: 8px 0;
 }
 
 .bottom-container>section>p {
-    color: #809fff;
+    color: var(--primary-color);
     text-align: center;
 }
 
