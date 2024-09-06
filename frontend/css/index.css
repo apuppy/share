@@ -13,6 +13,7 @@ body {
 .wrapper>* {
     padding: 10px;
     flex: 1 100%;
+    color: #809fff;
 }
 
 nav {

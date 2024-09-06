@@ -1,36 +1,73 @@
-document.querySelector('#theme-toggle').addEventListener('click', function(event) {
+const THEME_DARK = 'dark';
+const THEME_LIGHT = 'light';
+
+
+// manually toggle theme
+document.querySelector('#theme-toggle').addEventListener('click', function (event) {
     event.preventDefault()
-    console.log("Theme toggled")
+    manuallyUseTheme()
 })
-document.addEventListener('DOMContentLoaded', function() {
-    let storedTheme = localStorage.getItem('theme');
-    switch(storedTheme) {
-        case 'dark':
-            useTheme('dark')
+
+// auto detect system theme when page loads
+document.addEventListener('DOMContentLoaded', function (event) {
+    const theme = autoDetectTheme()
+    useTheme(theme)
+})
+
+function autoDetectTheme() {
+    let theme = ''
+    let storageTheme = getStorageTheme();
+    switch (storageTheme) {
+        case THEME_DARK:
+            theme=THEME_DARK
             break
-        case 'light':
-            useTheme('dark')('light')
+        case THEME_LIGHT:
+            theme = THEME_LIGHT
             break
         default:
             let sysTheme = querySysTheme()
-            if (sysTheme === 'dark') {
-                useTheme('dark')
-            }else {
-                useTheme('light')
+            if (sysTheme === THEME_DARK) {
+                theme = THEME_DARK
+            } else {
+                theme = THEME_LIGHT
             }
     }
-})
+    return theme
+}
+
+function manuallyUseTheme() {
+    const theme = switchTheme()
+    useTheme(theme)
+}
+
+function switchTheme() {
+    const themeEl = document.querySelector("#theme-name")
+    const themeName = themeEl.getAttribute('data-theme-name')
+    wantTheme = themeName === THEME_DARK ? THEME_LIGHT : THEME_DARK
+    setStorageTheme(wantTheme);
+    themeEl.setAttribute('data-theme-name', wantTheme)
+    themeEl.innerHTML = wantTheme
+    return wantTheme
+}
 
 function useTheme(theme) {
-    //TODO use relevant theme
-    console.log('Theme:', theme)
+    //TODO use relevant theme related CSS
+    console.log('Use relevant theme:', theme)
 }
 
 function querySysTheme() {
     const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (prefersDarkMode) {
-        return 'dark'
+        return THEME_DARK
     } else {
-        return 'light'
+        return THEME_LIGHT
     }
+}
+
+function getStorageTheme() {
+    return localStorage.getItem('theme');
+}
+
+function setStorageTheme(theme) {
+    localStorage.setItem('theme', theme);
 }
