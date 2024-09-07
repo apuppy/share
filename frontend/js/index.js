@@ -7,7 +7,7 @@ document.querySelector('#theme-toggle').addEventListener('click', function (even
     event.preventDefault()
     let theme = ensureTheme()
     wantTheme = flipTheme(theme)
-    showWantTheme(wantTheme)
+    showWantTheme(theme)
     setStorageTheme(wantTheme)
     applyTheme(wantTheme)
 })
