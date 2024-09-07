@@ -5,18 +5,31 @@ const THEME_LIGHT = 'light';
 // manually toggle theme
 document.querySelector('#theme-toggle').addEventListener('click', function (event) {
     event.preventDefault()
-    manuallyUseTheme()
+    let theme = ensureTheme()
+    wantTheme = flipTheme(theme)
+    showWantTheme(wantTheme)
+    setStorageTheme(wantTheme)
+    applyTheme(wantTheme)
 })
 
 // auto detect system theme when page loads
 document.addEventListener('DOMContentLoaded', function (event) {
-    const theme = autoDetectTheme()
-    useTheme(theme)
+    let theme = ensureTheme()
+    newTheme = flipTheme(theme)
+    showWantTheme(newTheme)
+    setStorageTheme(theme)
+    applyTheme(theme)
 })
 
-function autoDetectTheme() {
+function ensureTheme(){
+    theme = getTheme()
+    return theme
+}
+
+function getTheme() {
     let theme = ''
     let storageTheme = getStorageTheme();
+    console.log("storageTheme:", storageTheme)
     switch (storageTheme) {
         case THEME_DARK:
             theme=THEME_DARK
@@ -35,28 +48,24 @@ function autoDetectTheme() {
     return theme
 }
 
-function manuallyUseTheme() {
-    const theme = switchTheme()
-    useTheme(theme)
+function flipTheme(theme) {
+    return theme === THEME_DARK ? THEME_LIGHT : THEME_DARK
 }
 
-function switchTheme() {
+function showWantTheme(wantTheme) {
     const themeEl = document.querySelector("#theme-name")
-    const themeName = themeEl.getAttribute('data-theme-name')
-    wantTheme = themeName === THEME_DARK ? THEME_LIGHT : THEME_DARK
-    
-    setStorageTheme(wantTheme);
-    
-    themeEl.setAttribute('data-theme-name', wantTheme)
+    console.log("wantTheme:", wantTheme)
     themeEl.textContent = wantTheme
-
-    return wantTheme
 }
 
-function useTheme(theme) {
-    //TODO use relevant theme related CSS
-    console.log('Use relevant theme:', theme)
-    document.body.classList.toggle("dark-theme")
+function applyTheme(theme) {
+    console.log('apply relevant theme:', theme)
+    // document.body.classList.toggle("dark-theme")
+    if (theme === THEME_DARK) {
+        document.body.classList.add("dark-theme")
+    } else {
+        document.body.classList.remove("dark-theme")
+    }
 }
 
 function querySysTheme() {

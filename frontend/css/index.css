@@ -1,17 +1,17 @@
-.dark-theme {
-    --primary-color: #809fff;
-    --secondary-color: #253668;
-    --main-bg-color: #202945;
-    --link-color: #809fff;
-    --font-color: #809fff;
-}
-
 :root {
     --primary-color: #fff;
     --secondary-color: #fff;
     --main-bg-color: #f0f0f0;
     --link-color: #2383E2;
     --font-color: #37352F;
+}
+
+.dark-theme {
+    --primary-color: #809fff;
+    --secondary-color: #253668;
+    --main-bg-color: #202945;
+    --link-color: #809fff;
+    --font-color: #809fff;
 }
 
 body {
